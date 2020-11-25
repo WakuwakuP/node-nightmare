@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:14
 
 RUN apt-get update -y
 RUN apt-get install -y xvfb x11-xkb-utils xfonts-100dpi xfonts-75dpi \
