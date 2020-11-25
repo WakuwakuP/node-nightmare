@@ -13,6 +13,6 @@ RUN npm install nightmare
 
 RUN mkdir -p /app
 WORKDIR /app
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY --chown=node:node entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
