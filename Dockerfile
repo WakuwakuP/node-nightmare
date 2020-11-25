@@ -6,6 +6,12 @@ RUN apt-get install -y xvfb x11-xkb-utils xfonts-100dpi xfonts-75dpi \
   libgtk2.0-dev libnotify-dev libgnome-keyring-dev libgconf2-dev \
   libasound2-dev libcap-dev libcups2-dev libxtst-dev libxss1 \
   libnss3-dev gcc-multilib g++-multilib
+# COPY ./xvfbd /usr/local/bin
+# RUN chmod 755 /usr/local/bin/xvfbd
 
-COPY ./xvfbd /usr/local/bin
-RUN chmod 755 /usr/local/bin/xvfbd
+RUN npm install nightmare
+
+RUN mkdir -p /app
+WORKDIR /app
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
